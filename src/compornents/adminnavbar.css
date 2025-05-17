@@ -1,0 +1,17 @@
+.adminnavbar-top {
+    background-color: #1174d8;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    font-weight: bold;
+    position: fixed;
+    top:0
+  }
+  .navbar-nav a{
+    margin-left: 40px;
+    margin-right: 40px;
+    text-decoration: none;
+  }
+  

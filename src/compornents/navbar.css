@@ -1,0 +1,51 @@
+/* Initially hide menu in mobile view */
+.hide-menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+  }
+  
+  /* Show menu when toggled */
+  .show-menu {
+    max-height: 500px; /* Adjust based on menu height */
+    transition: max-height 0.4s ease-in;
+  }
+  
+  /* Ensure navbar stays on top */
+  .navbar-full {
+    top: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+   
+  }
+  .nav-item{
+    margin-right: 50px;
+  }
+  .nav-link{
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  
+  /* Hide menu in mobile view */
+@media (max-width: 992px) { /* Adjust breakpoint as needed */
+    .navbar-collapse {
+      display: none; /* Hide menu initially */
+      flex-direction: column;
+      background-color: white; /* Optional: Ensure visibility */
+      position: absolute;
+      top: 100%; /* Push below navbar */
+      left: 0;
+      width: 100%;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      z-index: 10;
+      padding: 10px;
+    }
+  
+    /* Show menu when toggled */
+    .show-menu {
+      display: flex;
+    }
+  }
+  

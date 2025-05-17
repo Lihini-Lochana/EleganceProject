@@ -1,0 +1,107 @@
+.tourbooking-content{
+    margin-left: 30%;
+    padding-top: 3%;
+    
+   
+}
+
+.choiceitems{
+   margin-left: 20%; 
+   margin-top: 2%;
+}
+.tourbooking-background{
+    background-image: radial-gradient(#ebebf1, #735cf3);
+    min-height: 100vh;
+}
+.tour-places{
+    height: 200px;
+    width:100%;
+    overflow: auto;
+}
+
+.tour-places img{
+    height:200px;
+    width: 200px;
+}
+
+.tour-cost{
+  margin:auto;
+    color:white;
+    width:300px;
+    height: 50px;
+    padding:10px;
+    font-weight: bold;
+    background-color:  black;
+    border:1px solid  black;
+    border-radius: 10px;
+   text-align: center;
+    cursor: pointer;
+    font-size: 17px;
+    margin-top: 20px;
+}
+
+
+.tourbooking-cancel{
+  
+    height: 40px;
+    padding:8px 10px;
+    font-weight: bold;
+    background-color:  rgb(253, 103, 77);
+    border:1px solid   rgb(253, 103, 77);
+    border-radius: 30px;
+    width:150px;
+    cursor: pointer;
+    font-size: 14px; 
+    color:white;
+}
+
+.tourbooking-cancel:hover{
+    background-color:  rgb(112, 21, 4); 
+}
+    
+.tourbooking-booking{
+    height: 40px;
+    padding:8px 10px;
+    font-weight: bold;
+    background-color:  rgb(12, 170, 12);
+    border:1px solid   rgb(12, 170, 12);
+    border-radius: 30px;
+    width:150px;
+    cursor: pointer;
+    font-size: 14px; 
+    color: white;
+    margin-left: 25%;
+}
+.tourbooking-booking:hover{
+    background-color: rgb(4, 90, 50);;
+}
+
+.tourbooking-back{
+    font-size: 40px;
+}
+
+.tourbooking-booking-buttonset{
+    margin-left: 20%;
+    margin-top: 1.5%;
+}
+@media (max-width:500px) {
+    .tourbooking-background{
+        margin-top: 16%;
+        
+       
+    }
+    .tourbooking-content{
+        margin-left: 2%;
+    }
+    .choiceitems{
+        margin-left: 5%;
+    }
+    .tourbooking-booking{
+        padding:8px 30px;
+        margin-left: 0%;
+        width:300px;
+    }
+    .tourbooking-booking-buttonset{
+        margin-left: 5%;
+    }
+}

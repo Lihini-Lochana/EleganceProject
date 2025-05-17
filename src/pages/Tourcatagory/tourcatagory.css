@@ -1,0 +1,74 @@
+/* Set full-screen background image */
+.tour-container {
+    background-image: url("https://www.journeyera.com/wp-content/uploads/2018/01/sri-lanka-photos-0152.jpg"); /* Corrected image path */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    margin-left: 15%;
+}
+
+/* Grid container for buttons & descriptions */
+.button-description-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    gap: 150px; /* Space between columns */
+    align-items: center;
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* Ensures each button and description align properly */
+.button-description-pair {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; /* Space between button and its description */
+}
+
+/* Style the buttons */
+.custom-button {
+    background-color: #ffecff; /* Light pink */
+    color: black;
+    font-weight: bold;
+    border: none;
+    padding: 15px 40px;
+    font-size: 22px;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect */
+.custom-button:hover {
+    background-color: #ffd1ff;
+}
+
+/* Style the description boxes */
+.description-box {
+    background-color: #cceeff; /* Light blue */
+    padding: 20px;
+    max-width: 300px; /* Consistent width */
+    border-radius: 15px;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    word-wrap: break-word;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .button-description-container {
+        grid-template-columns: 1fr; /* Single column layout for small screens */
+        gap: 30px;
+    }
+
+    .tour-container{
+        margin-left: 0;
+    }
+}

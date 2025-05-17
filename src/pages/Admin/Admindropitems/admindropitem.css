@@ -1,0 +1,26 @@
+.admintourlist_main{
+    padding-top: 2%;
+    padding-left: 30%;
+    background-color:#CCCCFF;
+    min-height: 100vh;
+
+}
+
+.acceptform{
+    
+    width: 700px;
+    line-height: 2;
+    border: 1px solid rgb(104, 103, 103);
+    padding: 50px 30px;
+    background-color: #F0F8FF;
+    position: fixed;
+    top:5%;
+    left:25%;
+    z-index: 4;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,1);
+    display: none;
+}
+
+.acceptform .row{
+    margin-bottom: 15px;
+}

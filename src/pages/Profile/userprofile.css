@@ -1,0 +1,149 @@
+/* General Container */
+
+.profile_main{
+    background: linear-gradient(to right, #d1e1f2, #7edef2);
+    max-height: 100vh;
+    padding: 30px 40% 50px;
+   
+}
+.profile-container-profile {
+    width: 400px;
+    margin: 10px auto;
+    padding: 5px 10px;
+    background-image: linear-gradient(135deg, #e3f2fd, #bbdefb);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    text-align: center;
+  }
+  
+  /* Profile Title */
+  .profile-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  /* Profile Picture */
+  .profile-pic {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .profile-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid white;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .profile-img:hover {
+    transform: scale(1.05);
+  }
+  
+  .edit-icon {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s ease;
+  }
+  
+  .edit-icon:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  /* Input Fields */
+  .profile-info {
+    margin-top: 0px;
+  }
+  
+  .profile-card .input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 0px;
+  }
+  
+  .profile-card label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 5px;
+  }
+  
+  .profile-card input {
+    width: 100%;
+    padding: 4px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .profile-card input:focus {
+    border-color: #64b5f6;
+    outline: none;
+  }
+  
+  /* Buttons */
+  .profile-card .button-group {
+    margin-top: 20px;
+  }
+  
+  .profile-card button {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .edit-btn {
+    background: #4a90e2;
+    color: white;
+    margin-bottom: 10px;
+  }
+  
+  .edit-btn:hover {
+    background: #357abd;
+  }
+  
+  .save-btn {
+    background: #43a047;
+    color: white;
+    margin-bottom: 10px;
+  }
+  
+  .save-btn:hover {
+    background: #388e3c;
+  }
+  
+  /* Notification Icon */
+  .notification-icon {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 22px;
+    cursor: pointer;
+    color: rgb(0, 0, 0);
+    transition: color 0.3s ease;
+  }
+  
+  .notification-icon:hover {
+    color: #ffcc00;
+  }
+  

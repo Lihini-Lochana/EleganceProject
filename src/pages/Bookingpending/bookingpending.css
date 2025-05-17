@@ -1,0 +1,14 @@
+.bookingpending-background{
+    background-image: linear-gradient(#735cf3, #ebebf1);
+    min-height: 100vh;
+    padding-top: 100px;
+}
+.bookingpending-box{
+height: 400px;
+ background-color: aliceblue;
+ color: black;
+ padding: 30px 20px;
+ margin: auto;
+ width:600px;
+ text-align: center;
+}

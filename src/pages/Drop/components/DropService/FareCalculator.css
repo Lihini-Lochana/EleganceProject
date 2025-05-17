@@ -1,0 +1,88 @@
+.fare-calculator-container {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 500px;
+  }
+  
+  .fare-details {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 24px;
+  }
+  
+  .fare-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #e9ecef;
+  }
+  
+  .fare-row.total {
+    border-top: 2px solid #3498db;
+    margin-top: 12px;
+    padding-top: 16px;
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
+  
+  .fare-label {
+    color: #6c757d;
+    font-weight: 500;
+  }
+  
+  .fare-value {
+    color: #495057;
+    font-weight: 600;
+  }
+  
+  .action-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  .action-button {
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    flex: 1;
+    text-align: center;
+  }
+  
+  .action-button.back {
+    background-color: #f1f1f1;
+    color: #2c3e50;
+  }
+  
+  .action-button.back:hover {
+    background-color: #e1e1e1;
+  }
+  
+  .action-button.request {
+    background-color: #27ae60;
+    color: white;
+  }
+  
+  .action-button.request:hover {
+    background-color: #219653;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(39, 174, 96, 0.2);
+  }
+  
+  @media (max-width: 480px) {
+    .action-buttons {
+      flex-direction: column;
+    }
+    
+    .action-button {
+      width: 100%;
+    }
+  }

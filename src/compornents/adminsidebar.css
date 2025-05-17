@@ -1,0 +1,165 @@
+.sidebar-admin {
+    margin: 0;
+    padding: 0;
+    width: 300px;
+    background-color: #1174d8;
+    position: fixed;
+    height: 100%;
+    top: 0;
+    overflow: auto;
+    max-height: 100%;
+    padding-left: 20px;
+  }
+  
+  .sidebar-admin a {
+    display: block;
+    color: whitesmoke;
+    padding: 15px;
+    text-decoration: none;
+    font-weight: bolder;
+    font-size: 16px;
+    font-family: "Lato", sans-serif;
+  }
+  
+  .sidebar-admin a.active {
+    background-color: #007fff;
+    color: white;
+    margin: 2px 7px;
+    border-radius: 10px;
+  }
+  
+  
+  .sidebar-admin a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+    margin: 2px 7px;
+    border-radius: 10px;
+  }
+  
+  .sidebar-admin .bi {
+    margin-right: 10px;
+    font-size: 20px;
+  }
+  
+  .logoutbutton {
+    margin-top: 90%;
+  }
+  .logotopic {
+    padding-top: 12px;
+  }
+  
+  .sidebar2 {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    background-color: black;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    display: none;
+  }
+  
+  
+  
+  .sidebar2 a {
+    display: block;
+    color: whitesmoke;
+    padding: 12px;
+    text-decoration: none;
+    font-weight: bolder;
+    font-size: 16px;
+    font-family: "Lato", sans-serif;
+  }
+  
+  .sidebar2 a.active {
+    background-color: #007fff;
+    color: white;
+    margin: 2px 7px;
+    border-radius: 10px;
+  }
+  
+  
+  .sidebar2 a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+    margin: 2px 7px;
+    border-radius: 10px;
+  }
+  
+  .sidebar2 .bi {
+    margin-right: 10px;
+    font-size: 20px;
+  }
+  
+  
+  
+  .sidebar2.open {
+    width: 200px;
+  }
+  
+  .sidebar2 .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    background-color: black;
+    text-align: right;
+  }
+  
+   .toglebutton{
+    background-color: black;
+    color: white;
+    font-size: 30px;
+    margin-top: -15px;
+    width:45px;
+  }
+  
+  .maincontent {
+    margin-left: 320px;
+    transition: margin-left 0.5s;
+    margin-top: 100px ;
+  }
+  
+  .openbtn{
+    display: none;
+    background-color: #111;
+    color: whitesmoke;
+    height:80px;
+    padding: 0px;
+    top:0;
+    z-index: 2;
+    position: fixed;
+    width: 100%;
+  
+  }
+  
+  .logoutbutton2 {
+    margin-top: 100%;
+  }
+  
+  @media screen and (max-width: 700px) {
+    .sidebar {
+      display: none;
+    }
+    .maincontent {
+      margin-left: 0;
+    }
+    .sidebar2 {
+      display: block;
+      
+      
+    }
+    .openbtn{
+      display: block;
+    }
+  
+  }
+  @media screen and (min-height: 500px){
+    .logoutbutton {
+      margin-top: 60%;
+    }
+  }
+  

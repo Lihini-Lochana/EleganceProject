@@ -1,0 +1,82 @@
+/* Background and Container */
+.dropbooking-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(to right, #cce7ff, #e6f0ff);
+  }
+  
+  .booking-card {
+    background: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    width: 600px;
+  }
+  
+  /* Title */
+  .title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  
+  /* Input Fields */
+  .details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .booking-card .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .details .label {
+    font-weight: bold;
+  }
+  
+  .booking-card .input {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 8px;
+    width: 90%;
+    background: white;
+  }
+  
+  /* Vehicle Image */
+  .vehicle-img {
+    border-radius: 5px;
+    width: 80px;
+    height: auto;
+  }
+  
+  /* Buttons */
+  .book-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .book-buttons .book-btn {
+    background: #3b82f6;
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .book-buttons .cancel-btn {
+    background: #dc2626;
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  

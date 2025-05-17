@@ -1,0 +1,38 @@
+.selectvehicle-content{
+    margin-left: 30%;
+    
+    
+}
+
+.selectvehicle-background{
+    background-image: linear-gradient(to bottom, #9370DB, #E6E6FA);
+    padding-top: 5%;
+    padding-bottom: 2%;
+    min-height: 100vh;;
+}
+
+.selectvehicle-finish{
+    height: 40px;
+    padding:8px 10px;
+    font-weight: bold;
+    background-color:  rgb(12, 170, 12);
+    border:1px solid   rgb(12, 170, 12);
+    border-radius: 30px;
+    width:150px;
+    cursor: pointer;
+    font-size: 14px; 
+    color: white;
+    margin-left:40%;
+}
+
+.selectvehicle-back{
+    font-size: 40px;
+}
+
+.selectvehicle-cart{
+    right:5%;
+    top:5%;
+    font-size: 40px;
+    position:fixed;
+    z-index: 1;
+}

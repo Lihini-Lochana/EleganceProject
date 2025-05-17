@@ -1,0 +1,214 @@
+/* General Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+
+ 
+  
+
+  
+  
+  
+  .left-box button:hover {
+    background: #e0e0e0;
+  }
+  
+  /* Right Side */
+  .right-box {
+    width: 60%;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .right-box h2 {
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .input-group-signup {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5px;
+  }
+  
+  .input-group-signup input {
+    width: 100%;
+    padding:10px 12px;
+    outline: none;
+   background-color: transparent;
+    border:none;
+    border-bottom:2px solid #71797E;
+    
+  }
+  
+  
+  
+  .submit-btn {
+    margin-left: 100px;
+    width: 50%;
+    text-align: center;
+    align-items: center;
+    padding: 12px;
+    background: #052953;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    
+    transition: 0.3s;
+  }
+  
+  .submit-btn:hover {
+    background: #357ac8;
+  }
+  
+ 
+  
+  
+  
+  .rightpicture{
+    height:500px;
+   background-image: url('../images/travell2.jpg'); 
+    background-size: cover;  
+    background-position: center;  
+    background-repeat: no-repeat;  
+    
+    border-radius: 50% 0 0 50%;
+    width:350px;
+  }
+  .container-signup{
+    
+    border: 1px solid #0773ee ;
+    height:500px;
+    width:720px;
+    margin: auto;
+    margin-top: 9%;
+    background-image: linear-gradient(180deg, white 40%, #357ac8);
+  }
+  .signup-form{
+    margin-top: 5px;
+  }
+  .log-forgetpassword{
+    font-size: 14px;
+    text-align: left;
+    margin-left: 5px;
+  }
+  .log-gotosignup{
+    font-size: 14px;
+    text-align: center;
+  }
+  
+.otp{
+  top:15%;
+  left:30%;
+  position: fixed;
+  background-color: #c9dcf3;
+  padding:4% 8%;
+}
+.otp input{
+  height: 40px;
+  font-weight: bold;
+  font-size: 25px;
+  border-radius: 10px;
+  padding: 20px;
+}
+.otp button{
+  background-color: #15467e;
+  border: 1px solid #15467e;
+  color:#c9dcf3;
+  padding: 1% 4%;
+  border-radius: 10px;
+  font-size: 20px;
+  margin-top: 8%;
+  margin-left: 70%;
+}
+
+.otp button :hover{
+  background-color: #032041;
+}
+
+    @media(max-width:776px){
+      .rightpicture{
+        display: none;
+      }
+      .container-signup{
+        width:100%;
+        margin-top: 15%;
+      }
+      .signup-form{
+        width: 100%;
+      }
+    
+     
+      .input-group-signup {
+        width: 200%;
+       
+      }
+      
+      .input-group-signup input {
+        width: 96%;
+      }
+      .submit-btn{
+        width:90%;
+        margin-left: 5%;
+      }
+      .log-forgetpassword,.log-gotosignup{
+        width:100%;
+      }}
+
+      @media(max-width:590px){
+        .rightpicture{
+          display: none;
+        }
+        .container-signup{
+          width:100%;
+          margin-top: 25%;
+          height:450px;
+        }
+        .signup-form{
+          width: 200%;
+          margin-top: 10%;
+         
+        }
+      
+       
+        .input-group-signup {
+          width: 100%;
+        }
+        
+        .input-group-signup input {
+          width: 96%;
+         padding : 7px;
+        }
+        .submit-btn{
+          width:90%;
+          margin-left: 5%;
+        }
+        .log-forgetpassword,.log-gotosignup{
+          width:100%;
+        }
+
+
+  }
+
+  @media(max-width:350px){
+
+    .container-signup{
+      width:100%;
+      margin-top: 45%;
+      height:450px;
+    }
+  }
+  

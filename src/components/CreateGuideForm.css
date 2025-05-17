@@ -1,0 +1,33 @@
+.add-guide-container {
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.add-guide-form .form-group {
+    margin-bottom: 15px;
+}
+
+.add-guide-form label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.add-guide-form input,
+.add-guide-form textarea {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.submit-button-guide {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
