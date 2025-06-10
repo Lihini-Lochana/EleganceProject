@@ -110,7 +110,7 @@ const PreVehicleSelection = () => {
 
   return (
     <div className="vehicle-selection-container">
-      <h2>Suggested Vehicles for {passengerCount} Passengers</h2>
+      <h2 className="vehicle-selection-header">Suggested Vehicles for {passengerCount} Passengers</h2>
       <div className="horizontal-scroll">
         {suggestedVehicles.map((v, i) => (
           <div key={i} className="vehicle-card suggested">
@@ -127,7 +127,7 @@ const PreVehicleSelection = () => {
 
       <hr />
 
-      <h2>Select Vehicles as your Preference</h2>
+      <h2 className="vehicle-selection-header">Select Vehicles as your Preference</h2>
       <div className="horizontal-scroll">
         {mergedVehiclePackages.map((vp, i) => {
           const count = vehiclePackageCounts[vp.id] || 0;

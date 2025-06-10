@@ -3,11 +3,9 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useBooking } from "../context/BookingContext";
 
-
 const BookingForm = () => {
   const navigate = useNavigate();
-  const { bookingData, updateBooking } =  useBooking();
-  
+  const { bookingData, updateBooking } = useBooking();
 
   const {
     seasonId,
@@ -19,15 +17,15 @@ const BookingForm = () => {
     arrivalTime,
   } = bookingData;
 
-  const touristId = 1; 
+  const touristId = 1;
 
   const [vehiclePackages, setVehiclePackages] = useState([]);
   const [event, setEvent] = useState(null);
   const [overallTotalPrice, setOverallTotalPrice] = useState(0.0);
 
   useEffect(() => {
-    console.log('Navigated to booking page');
-    console.log('Received tour package ID:', packageId);
+    console.log("Navigated to booking page");
+    console.log("Received tour package ID:", packageId);
   }, [packageId]);
 
   useEffect(() => {
@@ -106,12 +104,11 @@ const BookingForm = () => {
 
     console.log("Final BookingDTO payload:", bookingDTO);
 
-
     axios
       .post("http://localhost:8080/api/bookings", bookingDTO)
       .then(() => {
         alert("Booking successfully created!");
-        navigate(`/tourist-bookings/${touristId}`); 
+        navigate(`/tourist-bookings/${touristId}`);
       })
       .catch((err) => {
         console.error("Booking creation failed", err);
@@ -120,49 +117,110 @@ const BookingForm = () => {
   };
 
   return (
-    <div className="container mt-5">
-      <h2>Booking Form</h2>
+    <div
+      style={{
+        backgroundColor: "#f2f6ff",
+        minHeight: "100vh",
+        padding: "40px",
+        fontFamily: "'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif",
+      }}
+    >
+      <div
+        style={{
+          maxWidth: "500px",
+          margin: "0 auto",
+          backgroundColor: "#ffffff",
+          padding: "30px",
+          borderRadius: "16px",
+          boxShadow: "0 10px 25px rgba(0, 0, 0, 0.1)",
+        }}
+      >
+        <h2 style={{ textAlign: "center", color: "#8a85e9", marginBottom: "20px" }}>
+          Let’s Get You Booked!
+        </h2>
 
-      <div className="mb-3">
-        <strong>Overall Total Price:</strong> ${overallTotalPrice.toFixed(2)}
-      </div>
-
-      <form onSubmit={handleBookingSubmit}>
-        <div className="mb-3">
-          <label className="form-label">Passenger Count</label>
-          <input
-            type="number"
-            className="form-control"
-            min="1"
-            value={passengerCount ?? ""}
-            onChange={(e) => handlePassengerChange(e.target.value)}
-            required
-            />
-
-            <input
-            type="date"
-            className="form-control"
-            value={bookingDate ?? ""}
-            onChange={(e) => handleDateChange(e.target.value)}
-            required
-            />
-
-            <input
-            type="time"
-            className="form-control"
-            value={arrivalTime ?? ""}
-            onChange={(e) => handleTimeChange(e.target.value)}
-            required
-            />
-
+        <div
+          style={{
+            marginBottom: "20px",
+            fontWeight: "bold",
+            fontSize: "18px",
+            color: "#333",
+            textAlign: "center",
+          }}
+        >
+          Overall Total Price: ${overallTotalPrice.toFixed(2)}
         </div>
 
-        <button type="submit" className="btn btn-primary">
-          Confirm Booking
-        </button>
-      </form>
+        <form onSubmit={handleBookingSubmit}>
+          <div style={{ marginBottom: "15px" }}>
+            <label style={{ display: "block", marginBottom: "8px", color: "#333" }}>
+              Passenger Count
+            </label>
+            <input
+              type="number"
+              style={inputStyle}
+              min="1"
+              value={passengerCount ?? ""}
+              onChange={(e) => handlePassengerChange(e.target.value)}
+              required
+            />
+          </div>
+
+          <div style={{ marginBottom: "15px" }}>
+            <label style={{ display: "block", marginBottom: "8px", color: "#333" }}>
+              Booking Date
+            </label>
+            <input
+              type="date"
+              style={inputStyle}
+              value={bookingDate ?? ""}
+              onChange={(e) => handleDateChange(e.target.value)}
+              required
+            />
+          </div>
+
+          <div style={{ marginBottom: "20px" }}>
+            <label style={{ display: "block", marginBottom: "8px", color: "#333" }}>
+              Arrival Time
+            </label>
+            <input
+              type="time"
+              style={inputStyle}
+              value={arrivalTime ?? ""}
+              onChange={(e) => handleTimeChange(e.target.value)}
+              required
+            />
+          </div>
+
+          <button type="submit" style={buttonStyle}>
+            Confirm Booking
+          </button>
+        </form>
+      </div>
     </div>
   );
+};
+
+const inputStyle = {
+  width: "100%",
+  padding: "10px",
+  borderRadius: "8px",
+  border: "1px solid #ccc",
+  fontSize: "16px",
+  outline: "none",
+  transition: "border-color 0.3s ease",
+};
+
+const buttonStyle = {
+  width: "100%",
+  padding: "12px",
+  backgroundColor: "#6c63ff",
+  color: "#fdfcfc",
+  border: "none",
+  borderRadius: "8px",
+  fontSize: "16px",
+  cursor: "pointer",
+  transition: "background-color 0.3s ease",
 };
 
 export default BookingForm;

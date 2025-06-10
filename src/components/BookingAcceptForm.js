@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-const BookingResponseForm = () => {
+const BookingAcceptForm = () => {
   const { bookingId } = useParams();
   const navigate = useNavigate();
 
@@ -24,12 +24,10 @@ const BookingResponseForm = () => {
       .get(`http://localhost:8080/api/bookings/admin/${bookingId}/vehicle-packages`)
       .then(({ data }) => {
         const vehiclePkgIds = data.selectedVehiclePackageIds || [];
-
         const initialAssignments = vehiclePkgIds.map((pkgId) => ({
           vehiclePackageId: pkgId,
           vehicleNumbers: ['']
         }));
-
         setVehicleAssignments(initialAssignments);
       })
       .catch((err) => {
@@ -56,7 +54,6 @@ const BookingResponseForm = () => {
     });
   };
 
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -78,28 +75,46 @@ const BookingResponseForm = () => {
       });
   };
 
-  if (!booking) return <p>Loading booking details…</p>;
+  if (!booking) return <p style={{ fontSize: '16px', textAlign: 'center' }}>Loading booking details…</p>;
 
   return (
-    <div className="p-6 max-w-2xl mx-auto bg-white shadow rounded">
-      <h2 className="text-2xl font-bold mb-4">Accept Booking #{bookingId}</h2>
+    <div
+      style={{
+        padding: '24px',
+        maxWidth: '700px',
+        margin: '20px auto',
+        backgroundColor: '#fff',
+        boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+        borderRadius: '10px',
+        fontFamily: "'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif"
 
-      <div className="mb-6">
+      }}
+    >
+      <h2 style={{ fontSize: '26px', fontWeight: 'bold', marginBottom: '16px', color: '#2c3e50' }}>
+        Accept Booking #{bookingId}
+      </h2>
+
+      <div style={{ marginBottom: '24px', lineHeight: '1.6' }}>
         <p><strong>Booking Date:</strong> {booking.bookingDate}</p>
         <p><strong>Arrival Time:</strong> {booking.arrivalTime}</p>
         <p><strong>Passengers:</strong> {booking.passengerCount}</p>
-        
       </div>
 
       <form onSubmit={handleSubmit}>
-        <div className="mb-6">
-          <label className="block font-semibold mb-1">Assign Guides</label>
+        <div style={{ marginBottom: '24px' }}>
+          <label style={{ display: 'block', fontWeight: '600', marginBottom: '8px' }}>Assign Guides</label>
           <select
             multiple
             value={guideIds}
             onChange={onGuideChange}
-            className="w-full border rounded p-2"
             required
+            style={{
+              width: '100%',
+              padding: '10px',
+              borderRadius: '6px',
+              border: '1px solid #ccc',
+              fontSize: '14px'
+            }}
           >
             {guides.map((g) => (
               <option key={g.id} value={g.id}>
@@ -109,30 +124,56 @@ const BookingResponseForm = () => {
           </select>
         </div>
 
-        <div className="mb-6">
-          <h3 className="font-semibold mb-2">Enter Vehicle Numbers</h3>
+        <div style={{ marginBottom: '24px' }}>
+          <h3 style={{ fontWeight: '600', marginBottom: '10px' }}>Enter Vehicle Numbers</h3>
           {vehicleAssignments.map((assign, pkgIdx) => (
-            <div key={pkgIdx} className="mb-4 p-3 border rounded">
+            <div
+              key={pkgIdx}
+              style={{
+                marginBottom: '16px',
+                padding: '12px',
+                border: '1px solid #ddd',
+                borderRadius: '8px',
+                backgroundColor: '#f9f9f9'
+              }}
+            >
               <input type="hidden" value={assign.vehiclePackageId} />
               {assign.vehicleNumbers.map((num, numIdx) => (
                 <input
                   key={numIdx}
                   type="text"
                   value={num}
-                  onChange={(e) => onVehicleNumberChange(pkgIdx, numIdx, e.target.value)}
-                  className="w-full border rounded p-2 mb-2"
-                  placeholder="Enter vehicle number"
                   required
+                  placeholder="Enter vehicle number"
+                  onChange={(e) => onVehicleNumberChange(pkgIdx, numIdx, e.target.value)}
+                  style={{
+                    width: '100%',
+                    padding: '10px',
+                    marginBottom: '10px',
+                    borderRadius: '6px',
+                    border: '1px solid #ccc',
+                    fontSize: '14px'
+                  }}
                 />
               ))}
-              
             </div>
           ))}
         </div>
 
         <button
           type="submit"
-          className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
+          style={{
+            backgroundColor: '#8a85e9',
+            color: '#fff',
+            padding: '10px 20px',
+            fontSize: '16px',
+            border: 'none',
+            borderRadius: '6px',
+            cursor: 'pointer',
+            transition: 'background-color 0.2s'
+          }}
+          onMouseOver={(e) => (e.target.style.backgroundColor = '#8a85e9')}
+          onMouseOut={(e) => (e.target.style.backgroundColor = '#8a85e9')}
         >
           Confirm Accept
         </button>
@@ -141,4 +182,4 @@ const BookingResponseForm = () => {
   );
 };
 
-export default BookingResponseForm;
+export default BookingAcceptForm;

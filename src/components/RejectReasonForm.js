@@ -36,10 +36,38 @@ const RejectReasonForm = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto p-6 bg-white rounded shadow">
-      <h2 className="text-xl font-bold mb-4">Reject Booking #{bookingId}</h2>
+    <div
+      style={{
+        maxWidth: '500px',
+        margin: '50px auto',
+        padding: '30px',
+        backgroundColor: '#fff',
+        borderRadius: '10px',
+        boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)',
+        fontFamily: "'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif"
+
+      }}
+    >
+      <h2
+        style={{
+          fontSize: '24px',
+          fontWeight: 'bold',
+          marginBottom: '20px',
+          color: '#333'
+        }}
+      >
+        Reject Booking #{bookingId}
+      </h2>
       <form onSubmit={handleReject}>
-        <label className="block mb-2 font-semibold" htmlFor="rejectReason">
+        <label
+          htmlFor="rejectReason"
+          style={{
+            display: 'block',
+            marginBottom: '8px',
+            fontWeight: '600',
+            color: '#555'
+          }}
+        >
           Rejection Reason
         </label>
         <textarea
@@ -47,7 +75,16 @@ const RejectReasonForm = () => {
           value={rejectReason}
           onChange={(e) => setRejectReason(e.target.value)}
           rows={4}
-          className="w-full p-2 border rounded mb-4"
+          style={{
+            width: '100%',
+            padding: '12px',
+            borderRadius: '6px',
+            border: '1px solid #ccc',
+            marginBottom: '20px',
+            fontSize: '14px',
+            resize: 'vertical',
+            fontFamily: 'inherit'
+          }}
           placeholder="Enter reason for rejection"
           required
           disabled={loading}
@@ -55,7 +92,16 @@ const RejectReasonForm = () => {
         <button
           type="submit"
           disabled={loading}
-          className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
+          style={{
+            backgroundColor: loading ? '#d9534f' : '#c0392b',
+            color: '#fff',
+            padding: '10px 20px',
+            border: 'none',
+            borderRadius: '6px',
+            fontSize: '16px',
+            cursor: loading ? 'not-allowed' : 'pointer',
+            transition: 'background-color 0.3s'
+          }}
         >
           {loading ? 'Rejecting...' : 'Reject Booking'}
         </button>

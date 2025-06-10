@@ -2,6 +2,13 @@
   padding: 1rem;
   max-width: 1200px;
   margin: auto;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.vehicle-selection-header {
+  color: #8a85e9;
+  padding-top: 30px;
+  padding-bottom: 20px;
 }
 
 .horizontal-scroll {
@@ -22,8 +29,8 @@
 }
 
 .vehicle-card.suggested {
-  border-color: green;
-  background-color: #f5fff5;
+  border-color: #007bff;
+  background-color: #f8f5ff;
 }
 
 .vehicle-card img {

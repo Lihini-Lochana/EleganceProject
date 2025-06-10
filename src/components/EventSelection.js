@@ -44,11 +44,11 @@ const EventSelection = () => {
   if (error) return <div style={{ color: "red" }}>{error}</div>;
 
   return (
-    <div className="container">
-      <h2>We have Village Tour and Safari Events</h2>
-      <h2>Do you like these Events?</h2>
+    <div className="container" style={{fontFamily: "'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif"}}>
+      <h2 style={{color: "#8a85e9", paddingTop: "30px"}}>We have Village Tour and Safari Events</h2>
+      <h2 style={{color: "#8a85e9"}}>Do you like these Events?</h2>
       <br></br>
-      <h4><strong>You can skip this step if you don't want to attend any event.</strong></h4>
+      <h4><strong>Note: You can skip this step if you don't want to attend any event.</strong></h4>
 
       <div style={{ display: "flex", flexWrap: "wrap", gap: "20px", marginTop: "20px" }}>
         {events.map((event) => (
@@ -77,7 +77,7 @@ const EventSelection = () => {
             />
             <h4>{event.name}</h4>
             <p>{event.description}</p>
-            <p><strong>Price:</strong> Rs. {event.price}</p>
+            <p><strong>Price:</strong> ${event.price}</p>
           </div>
         ))}
       </div>

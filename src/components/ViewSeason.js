@@ -30,20 +30,35 @@ export const ViewSeason = () => {
         navigate(`/view-season-packages/${seasonId}`);
     };
 
-    return (
-        <div className="season-container">
-            <h2>Seasons</h2>
+    const backgroundStyle = {
+        backgroundImage: `url('/assets/season-bg5.jpg')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        minHeight: '100vh',
+        padding: '4rem 2rem',
+        color: 'white',
+        fontFamily: 'Segoe UI, sans-serif',
+        textAlign: 'center'
+};
+
+        return (
+        <div style={backgroundStyle}>
+            <h1 className="season-header">Select season as your preference</h1>
+
+            <div className="season-items-wrapper">
             {seasons.map((season) => (
                 <div key={season.id} className="season-item">
-                    <button 
-                        className="season-button" 
-                        onClick={() => handleSelectSeason(season.id)}
-                    >
-                        {season.name}
-                    </button>
-                    <p>{season.description}</p>
+                <button 
+                    className="season-button" 
+                    onClick={() => handleSelectSeason(season.id)}
+                >
+                    {season.name}
+                </button>
+                <p>{season.description}</p>
                 </div>
             ))}
+            </div>
         </div>
-    );
+        );
+
 };

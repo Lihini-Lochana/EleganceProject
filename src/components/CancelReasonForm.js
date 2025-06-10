@@ -16,7 +16,7 @@ const CancelReasonForm = () => {
                 params: { reason },
             });
             alert("Booking cancelled successfully.");
-            navigate(-1); 
+            navigate(`/view-cancel/${bookingId}`);
         } catch (error) {
             console.error("Cancellation error:", error);
             alert("Failed to cancel booking. Please try again.");
@@ -28,24 +28,52 @@ const CancelReasonForm = () => {
     return (
         <div style={{
             maxWidth: "600px",
-            margin: "40px auto",
-            padding: "20px",
-            border: "1px solid #ccc",
-            borderRadius: "10px",
-            boxShadow: "0 2px 10px rgba(0,0,0,0.1)"
+            margin: "50px auto",
+            padding: "30px",
+            backgroundColor: "#fdfdfd",
+            borderRadius: "12px",
+            boxShadow: "0 4px 15px rgba(0, 0, 0, 0.1)",
+            fontFamily: "'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif",
+            color: "#333"
         }}>
-            <h2>Cancel Booking #{bookingId}</h2>
+            <h2 style={{ fontSize: "24px", marginBottom: "20px", fontWeight: "bold", color: "#c0392b" }}>
+                Cancel Booking #{bookingId}
+            </h2>
             <form onSubmit={handleSubmit}>
-                <label htmlFor="reason">Reason for Cancellation:</label>
+                <label htmlFor="reason" style={{ display: "block", marginBottom: "8px", fontWeight: "600" }}>
+                    Reason for Cancellation:
+                </label>
                 <textarea
                     id="reason"
                     value={reason}
                     onChange={(e) => setReason(e.target.value)}
                     required
-                    rows="4"
-                    style={{ width: "100%", padding: "10px", marginTop: "10px", marginBottom: "20px" }}
+                    rows="5"
+                    placeholder="Enter your reason here..."
+                    style={{
+                        width: "100%",
+                        padding: "12px",
+                        fontSize: "16px",
+                        borderRadius: "8px",
+                        border: "1px solid #ccc",
+                        marginBottom: "20px",
+                        resize: "vertical"
+                    }}
                 ></textarea>
-                <button type="submit" disabled={submitting}>
+                <button
+                    type="submit"
+                    disabled={submitting}
+                    style={{
+                        backgroundColor: submitting ? "#aaa" : "#e74c3c",
+                        color: "#fff",
+                        padding: "12px 20px",
+                        fontSize: "16px",
+                        border: "none",
+                        borderRadius: "8px",
+                        cursor: submitting ? "not-allowed" : "pointer",
+                        transition: "background-color 0.3s ease"
+                    }}
+                >
                     {submitting ? 'Cancelling...' : 'Submit Cancellation'}
                 </button>
             </form>

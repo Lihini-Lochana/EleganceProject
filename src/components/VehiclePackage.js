@@ -1,51 +1,39 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const VehiclePackage = ({ setVehiclePackages, vehiclePackages }) => {
-  const [allVehicles, setAllVehicles] = useState([]);
+const VehiclePackage = ({ vehiclePackages, setVehiclePackages }) => {
+  const [vehicles, setVehicles] = useState({});
   const [selectedVehicleId, setSelectedVehicleId] = useState("");
   const [totalPrice, setTotalPrice] = useState("");
   const [extraKmPrice, setExtraKmPrice] = useState("");
-  const [vehicleDetails, setVehicleDetails] = useState({}); 
 
   useEffect(() => {
     axios
       .get("http://localhost:8080/api/vehicles")
       .then((res) => {
-        const vehicles = res.data;
-        setAllVehicles(vehicles);
-
-        const vehicleRequests = vehicles.map((vehicle) =>
-          axios.get(`http://localhost:8080/api/vehicles/${vehicle.id}`)
-        );
-
-        Promise.all(vehicleRequests)
-          .then((responses) => {
-            const vehicleDetailsMap = responses.reduce((acc, response) => {
-              const vehicle = response.data;
-              acc[vehicle.id] = vehicle; 
-              return acc;
-            }, {});
-            setVehicleDetails(vehicleDetailsMap); 
-          })
-          .catch((err) => console.error("Error fetching vehicle details:", err));
+        const vehicleMap = {};
+        res.data.forEach((vehicle) => {
+          vehicleMap[vehicle.id] = vehicle;
+        });
+        setVehicles(vehicleMap);
       })
-      .catch((err) => console.error("Error fetching vehicles:", err));
+      .catch((err) => {
+        console.error("Error fetching vehicles", err);
+      });
   }, []);
 
-  const handleAddVehicle = () => {
-    if (!selectedVehicleId || !totalPrice || !extraKmPrice) {
-      alert("Please fill in all vehicle details.");
-      return;
-    }
+  const handleAddVehiclePackage = () => {
+    if (!selectedVehicleId || !totalPrice || !extraKmPrice) return;
 
-    const newVehicle = {
+    const newPackage = {
       vehicleId: parseInt(selectedVehicleId),
       totalPrice: parseFloat(totalPrice),
       extraKmPrice: parseFloat(extraKmPrice),
     };
 
-    setVehiclePackages([...vehiclePackages, newVehicle]);
+    const updatedPackages = [...(vehiclePackages || []), newPackage];
+    setVehiclePackages(updatedPackages);
+
     setSelectedVehicleId("");
     setTotalPrice("");
     setExtraKmPrice("");
@@ -53,18 +41,17 @@ const VehiclePackage = ({ setVehiclePackages, vehiclePackages }) => {
 
   return (
     <div>
-      <h3>Vehicle Packages</h3>
-
+      <h3>Add Vehicle Package</h3>
       <div>
-        <label>Select Vehicle:</label>
+        <label>Vehicle Type:</label>
         <select
           value={selectedVehicleId}
           onChange={(e) => setSelectedVehicleId(e.target.value)}
         >
-          <option value="">-- Select a Vehicle --</option>
-          {allVehicles.map((vehicle) => (
+          <option value="">Select a vehicle</option>
+          {Object.values(vehicles).map((vehicle) => (
             <option key={vehicle.id} value={vehicle.id}>
-              {vehicle.type} 
+              {vehicle.type} ({vehicle.minPassengers}-{vehicle.maxPassengers} pax)
             </option>
           ))}
         </select>
@@ -88,26 +75,40 @@ const VehiclePackage = ({ setVehiclePackages, vehiclePackages }) => {
         />
       </div>
 
-      <button type="button" onClick={handleAddVehicle}>
-        Add Vehicle
+      <button type="button" onClick={handleAddVehiclePackage}>
+        Add Vehicle Package
       </button>
 
-      <ul>
-        {vehiclePackages.map((v, i) => {
-          const vehicle = vehicleDetails[v.vehicleId];
-          return (
-            <li key={i}>
-              {vehicle ? (
-                <>
-                  <strong>{vehicle.type}</strong> - Price: {v.totalPrice}, Extra Km: {v.extraKmPrice}
-                </>
-              ) : (
-                "Loading vehicle details..."
-              )}
-            </li>
-          );
-        })}
-      </ul>
+      <h4>Added Vehicle Packages</h4>
+      {Array.isArray(vehiclePackages) && vehiclePackages.length === 0 ? (
+        <p>No vehicle packages added yet.</p>
+      ) : (
+        <ul>
+          {Array.isArray(vehiclePackages) &&
+            vehiclePackages.map((vp, index) => {
+              const vehicle = vehicles[vp.vehicleId];
+              return (
+                <li key={index} style={{ marginBottom: "1rem" }}>
+                  {vehicle && (
+                    <>
+                      <p>
+                        <strong>{vehicle.type}</strong> ({vehicle.minPassengers}-
+                        {vehicle.maxPassengers} pax)
+                      </p>
+                      <img
+                        src={vehicle.imageUrl}
+                        alt={vehicle.type}
+                        width="150"
+                      />
+                    </>
+                  )}
+                  <p>Total Price: Rs. {vp.totalPrice}</p>
+                  <p>Extra Km Price: Rs. {vp.extraKmPrice}</p>
+                </li>
+              );
+            })}
+        </ul>
+      )}
     </div>
   );
 };

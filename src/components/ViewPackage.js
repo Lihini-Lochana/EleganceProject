@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import "./ViewPackage.css";
+
 
 const ViewPackage = () => {
   const { packageId } = useParams();
@@ -85,24 +87,14 @@ const ViewPackage = () => {
   if (!tourPackage || places.length === 0 || vehicles.length === 0) return <div>Loading...</div>;
 
   return (
-    <div>
+    <div style={{fontFamily: "'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif"}}>
       <h2>Tour Package Details</h2>
       <div>
-        <button
-          onClick={() => {
-            if (tourPackage.season?.id) {
-              navigate(`/create-package/${tourPackage.season.id}`);
-            } else {
-              alert("Season ID not available.");
-            }
-          }}
-        >
-          Create New Package
-        </button>
+        
       </div>
       <div>
         <h3>{tourPackage.name}</h3>
-        <p><strong>Total Kilometers:</strong> {tourPackage.totalKilometers}</p>
+        <p><strong>Total Kilometers:</strong> {tourPackage.totalKilometers} km</p>
         <p><strong>Pickup Location:</strong> {tourPackage.pickupLocation}</p>
         <p><strong>Drop Location:</strong> {tourPackage.dropLocation}</p>
         <p><strong>Duration (Nights):</strong> {tourPackage.nights}</p>
@@ -129,8 +121,8 @@ const ViewPackage = () => {
           tourPackage.vehiclePackages.map((vehicle, index) => (
             <div key={vehicle.id} style={{ border: "1px solid #ccc", margin: "10px", padding: "10px" }}>
               <p><strong>Vehicle:</strong> {vehicles[index]?.type || "N/A"}</p>
-              <p><strong>Total Price:</strong> {vehicle.totalPrice}</p>
-              <p><strong>Extra KM Price:</strong> {vehicle.extraKmPrice}</p>
+              <p><strong>Total Price ($):</strong> {vehicle.totalPrice}</p>
+              <p><strong>Extra KM Price (LKR):</strong> {vehicle.extraKmPrice}</p>
               <button onClick={() => deleteVehiclePackage(vehicle.id)}>Delete Vehicle</button>
             </div>
           ))

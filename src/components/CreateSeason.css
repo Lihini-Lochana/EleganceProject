@@ -1,9 +1,9 @@
 .create-season-container {
     padding: 20px;
-    font-family: Arial, sans-serif;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     max-width: 500px;
-    margin: 0 auto;
-    background-color: #f9f9f9;
+    margin: 40px auto;
+    background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }

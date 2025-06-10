@@ -51,17 +51,82 @@ const AdminBooking = () => {
     navigate(`/bookings-reject/${bookingId}`);
   };
 
-  return (
-    <div className="p-6">
-      <h2 className="text-2xl font-bold mb-6">All Bookings</h2>
+  const containerStyle = {
+    padding: '24px',
+    fontFamily: "'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif",
+    backgroundColor: '#c5d0e4',
+    minHeight: '100vh'
+  };
 
-      <div className="flex gap-6 mb-6">
+  const headingStyle = {
+    fontSize: '28px',
+    fontWeight: 'bold',
+    marginBottom: '24px'
+  };
+
+  const filterContainerStyle = {
+    display: 'flex',
+    gap: '24px',
+    marginBottom: '24px'
+  };
+
+  const labelStyle = {
+    fontWeight: '600',
+    marginRight: '8px'
+  };
+
+  const inputStyle = {
+    padding: '6px 12px',
+    borderRadius: '6px',
+    border: '1px solid #ccc'
+  };
+
+  const cardStyle = {
+    backgroundColor: '#ffffff',
+    padding: '16px',
+    borderRadius: '8px',
+    marginBottom: '16px',
+    boxShadow: '0 4px 8px rgba(0,0,0,0.1)'
+  };
+
+  const titleStyle = {
+    fontSize: '20px',
+    fontWeight: '600',
+    marginBottom: '12px'
+  };
+
+  const listStyle = {
+    fontSize: '14px',
+    marginBottom: '12px',
+    lineHeight: '1.6'
+  };
+
+  const buttonContainerStyle = {
+    display: 'flex',
+    gap: '16px',
+    marginTop: '12px'
+  };
+
+  const buttonStyle = (bgColor, disabled) => ({
+    padding: '10px 20px',
+    borderRadius: '6px',
+    color: 'white',
+    backgroundColor: disabled ? '#aaa' : bgColor,
+    border: 'none',
+    cursor: disabled ? 'not-allowed' : 'pointer'
+  });
+
+  return (
+    <div style={containerStyle}>
+      <h2 style={headingStyle}>All Bookings</h2>
+
+      <div style={filterContainerStyle}>
         <div>
-          <label className="mr-2 font-semibold">Filter by Status:</label>
+          <label style={labelStyle}>Filter by Status:</label>
           <select
             value={statusFilter}
             onChange={handleStatusFilterChange}
-            className="border px-3 py-1 rounded"
+            style={inputStyle}
           >
             <option value="ALL">All</option>
             <option value="PENDING">Pending</option>
@@ -72,12 +137,12 @@ const AdminBooking = () => {
         </div>
 
         <div>
-          <label className="mr-2 font-semibold">Filter by Created Date:</label>
+          <label style={labelStyle}>Filter by Created Date:</label>
           <input
             type="date"
             value={createdDateFilter}
             onChange={handleDateFilterChange}
-            className="border px-3 py-1 rounded"
+            style={inputStyle}
           />
         </div>
       </div>
@@ -85,12 +150,12 @@ const AdminBooking = () => {
       {filteredBookings.length === 0 && <p>No bookings found.</p>}
 
       {filteredBookings.map(booking => (
-        <div key={booking.bookingId} className="border rounded p-4 mb-4 shadow">
-          <h3 className="text-xl font-semibold mb-2">
+        <div key={booking.bookingId} style={cardStyle}>
+          <h3 style={titleStyle}>
             {booking.touristName} - {booking.tourPackageName} ({booking.seasonName})
           </h3>
 
-          <ul className="text-sm mb-2">
+          <ul style={listStyle}>
             <li><strong>Event:</strong> {booking.eventName || 'None'}</li>
             <li><strong>Vehicle Packages:</strong> {booking.vehiclePackageNames?.join(', ')}</li>
             <li><strong>Passenger Count:</strong> {booking.passengerCount}</li>
@@ -104,13 +169,11 @@ const AdminBooking = () => {
             <li><strong>Total Cost:</strong> ${booking.overallTotalPrice}</li>
           </ul>
 
-          <div className="flex gap-4 mt-3">
+          <div style={buttonContainerStyle}>
             <button
               onClick={() => handleAccept(booking.bookingId)}
               disabled={booking.status !== 'PENDING'}
-              className={`px-4 py-2 rounded text-white ${
-                booking.status !== 'PENDING' ? 'bg-gray-400 cursor-not-allowed' : 'bg-green-600 hover:bg-green-700'
-              }`}
+              style={buttonStyle('#28a745', booking.status !== 'PENDING')}
             >
               Accept
             </button>
@@ -118,9 +181,7 @@ const AdminBooking = () => {
             <button
               onClick={() => handleReject(booking.bookingId)}
               disabled={booking.status !== 'PENDING'}
-              className={`px-4 py-2 rounded text-white ${
-                booking.status !== 'PENDING' ? 'bg-gray-400 cursor-not-allowed' : 'bg-red-600 hover:bg-red-700'
-              }`}
+              style={buttonStyle('#dc3545', booking.status !== 'PENDING')}
             >
               Reject
             </button>

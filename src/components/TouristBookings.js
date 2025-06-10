@@ -47,15 +47,16 @@ const TouristBookings = () => {
         navigate(`/cancel-booking/${bookingId}`);
     };
 
-    if (loading) return <p>Loading bookings...</p>;
-    if (error) return <p>{error}</p>;
+    if (loading) return <p className="loading">Loading bookings...</p>;
+    if (error) return <p className="error">{error}</p>;
 
     return (
-        <div className="bookings-container">
-            <h2>Your Bookings</h2>
 
-            <div style={{ marginBottom: '20px' }}>
-                <label htmlFor="statusFilter">Filter by Status: </label>
+        <div className="bookings-container">
+            <h2 className="heading">Your Bookings</h2>
+
+            <div className="filter-section">
+                <label htmlFor="statusFilter">Filter by Status:</label>
                 <select
                     id="statusFilter"
                     value={statusFilter}
@@ -68,7 +69,7 @@ const TouristBookings = () => {
             </div>
 
             {filteredBookings.length === 0 ? (
-                <p>No bookings found for selected status.</p>
+                <p className="no-bookings">No bookings found for selected status.</p>
             ) : (
                 <div className="booking-card-grid">
                     {filteredBookings.map((booking) => (

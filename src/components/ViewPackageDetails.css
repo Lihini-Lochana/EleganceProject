@@ -112,3 +112,7 @@
     background-color: #0056b3;
 }
 
+.passenger-input-container {
+    padding-top: 10px;
+    font-weight: bold;
+}

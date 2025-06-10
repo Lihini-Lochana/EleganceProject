@@ -1,9 +1,11 @@
 .add-guide-container {
-    max-width: 500px;
-    margin: auto;
+    max-width: 800px;
+    margin: 20px auto;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 10px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
 }
 
 .add-guide-form .form-group {
@@ -25,7 +27,7 @@
 
 .submit-button-guide {
     padding: 10px 20px;
-    background-color: #4CAF50;
+    background-color: #c0a9f4;
     color: white;
     border: none;
     border-radius: 5px;
