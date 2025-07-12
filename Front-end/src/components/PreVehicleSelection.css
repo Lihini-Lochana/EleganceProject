@@ -1,6 +1,7 @@
 .vehicle-selection-container {
   padding: 1rem;
-  max-width: 1200px;
+  max-width: 1800px;
+  background: linear-gradient(to bottom, #ffffff 0%, #edf3fc 30%, #cdddf5 60%, #94b8f0 100%);
   margin: auto;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
@@ -62,7 +63,7 @@
 .next-button {
   padding: 0.75rem 2rem;
   font-size: 1rem;
-  background-color: #007bff;
+  background-color: #557aa8;
   color: white;
   border: none;
   border-radius: 6px;
@@ -70,5 +71,5 @@
 }
 
 .next-button:hover {
-  background-color: #0056b3;
+  background-color: #2e5680;
 }

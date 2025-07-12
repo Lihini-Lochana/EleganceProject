@@ -44,7 +44,7 @@ const EventSelection = () => {
   if (error) return <div style={{ color: "red" }}>{error}</div>;
 
   return (
-    <div className="container" style={{fontFamily: "'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif"}}>
+    <div className="container" style={{maxWidth: "1600px",  minHeight: "100vh", fontFamily: "'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif", background: "linear-gradient(to bottom, #ffffff 0%, #edf3fc 30%,rgb(215, 226, 241) 60%,rgb(188, 209, 244) 100%)"}}>
       <h2 style={{color: "#8a85e9", paddingTop: "30px"}}>We have Village Tour and Safari Events</h2>
       <h2 style={{color: "#8a85e9"}}>Do you like these Events?</h2>
       <br></br>
@@ -88,7 +88,7 @@ const EventSelection = () => {
           marginTop: "30px",
           padding: "12px 24px",
           fontSize: "16px",
-          backgroundColor: "#007bff",
+          backgroundColor: "#557aa8",
           color: "#fff",
           border: "none",
           borderRadius: "8px",

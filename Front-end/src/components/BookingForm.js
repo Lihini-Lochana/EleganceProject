@@ -119,7 +119,7 @@ const BookingForm = () => {
   return (
     <div
       style={{
-        backgroundColor: "#f2f6ff",
+        background: "linear-gradient(to bottom, #ffffff 0%, #edf3fc 30%,rgb(215, 226, 241) 60%,rgb(188, 209, 244) 100%)",
         minHeight: "100vh",
         padding: "40px",
         fontFamily: "'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif",

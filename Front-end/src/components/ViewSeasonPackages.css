@@ -1,6 +1,6 @@
 .season-packages-container {
   min-height: 100vh;
-  background-color: #f5f8ff;
+  background: linear-gradient(to bottom, #ffffff 0%, #edf3fc 30%, #cdddf5 60%, #94b8f0 100%);
   padding: 3rem 2rem;
   font-family: 'Segoe UI', sans-serif;
   color: #333;

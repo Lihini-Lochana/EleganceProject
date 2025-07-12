@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useBooking } from "../context/BookingContext";
-import "./PreVehicleSelection.css"; 
+import "./PreVehicleSelection.css";
 
 const PreVehicleSelection = () => {
   const { packageId, passengerCount } = useParams();
@@ -14,7 +14,8 @@ const PreVehicleSelection = () => {
   const [allVehicles, setAllVehicles] = useState([]);
   const [vehiclePackageCounts, setVehiclePackageCounts] = useState({});
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
+  const [fetchError, setFetchError] = useState("");
+  const [formError, setFormError] = useState("");
   const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
@@ -30,7 +31,7 @@ const PreVehicleSelection = () => {
         const [packagesRes, suggestedRes, allVehiclesRes] = await Promise.all([
           axios.get(`http://localhost:8080/api/vehicle-packages/tour-package/${packageId}`),
           axios.get(`http://localhost:8080/api/vehicle-packages/suggest-vehicles/${packageId}/${passengerCount}`),
-          axios.get(`http://localhost:8080/api/vehicles`),
+          axios.get(`http://localhost:8080/api/vehicles`)
         ]);
 
         setVehiclePackages(packagesRes.data);
@@ -38,7 +39,7 @@ const PreVehicleSelection = () => {
         setAllVehicles(allVehiclesRes.data);
       } catch (err) {
         console.error(err);
-        setError("Failed to fetch vehicle data.");
+        setFetchError("Failed to fetch vehicle data.");
       } finally {
         setLoading(false);
       }
@@ -91,13 +92,32 @@ const PreVehicleSelection = () => {
     return ids;
   };
 
+  const getTotalSelectedCapacity = () => {
+    let total = 0;
+    for (const [vpId, count] of Object.entries(vehiclePackageCounts)) {
+      const vp = mergedVehiclePackages.find((v) => v.id === Number(vpId));
+      if (vp?.vehicle) {
+        total += count * vp.vehicle.maxPassengers;
+      }
+    }
+    return total;
+  };
+
   const handleNextClick = () => {
     const selectedIds = getSelectedVehiclePackageIds();
+    const totalCapacity = getTotalSelectedCapacity();
+
     if (selectedIds.length === 0) {
-      alert("Please select at least one vehicle package.");
+      setFormError("Please select at least one vehicle package.");
       return;
     }
 
+    if (totalCapacity < passengerCount) {
+      setFormError(`Selected vehicles can carry only ${totalCapacity} passengers. You need to accommodate ${passengerCount}.`);
+      return;
+    }
+
+    setFormError(""); 
     updateBooking({
       selectedVehiclePackageIds: selectedIds,
     });
@@ -106,7 +126,7 @@ const PreVehicleSelection = () => {
   };
 
   if (loading) return <div>Loading vehicles...</div>;
-  if (error) return <div style={{ color: "red" }}>{error}</div>;
+  if (fetchError) return <div style={{ color: "red" }}>{fetchError}</div>;
 
   return (
     <div className="vehicle-selection-container">
@@ -153,6 +173,12 @@ const PreVehicleSelection = () => {
       </div>
 
       <h3>Total Price: ${totalPrice}</h3>
+
+      {formError && (
+        <div style={{ color: "red", marginTop: "10px", fontWeight: "bold" }}>
+          {formError}
+        </div>
+      )}
 
       <div className="next-button-container">
         <button onClick={handleNextClick} className="next-button">

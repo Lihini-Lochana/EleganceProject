@@ -77,7 +77,7 @@ const EventCreation = () => {
           <textarea name="description" value={eventData.description} onChange={handleChange} required />
         </div>
         <div>
-          <label>Price:</label>
+          <label>Price ($):</label>
           <input type="number" name="price" value={eventData.price} onChange={handleChange} required />
         </div>
         <div>
